@@ -97,6 +97,9 @@ class MainHandler(webapp2.RequestHandler):
         if not valid_email(email):
             error_email = "That's not a valid email"
 
+        if email == "":
+            error_email = ""
+
         if error_user == "" and error_password == "" and error_verify == "" and error_email == "":
             self.redirect('/welcome?username={}'.format(username))
             return
